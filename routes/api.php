@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\UsuarioCursoAsistenciaController;
 use App\Http\Controllers\UsuarioCursoEstudianteController;
 use App\Http\Controllers\UsuarioCursoMaestroController;
 use App\Models\Usuario;
@@ -26,7 +27,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get("/usuarios", [UsuarioController::class, "index"]);
 Route::get("/usuarios/maestros", [UsuarioController::class, "showMaestros"]);
 Route::get("/usuarios/alumnos", [UsuarioController::class, "showAlumnos"]);
-
 Route::post("/usuarios/create", [UsuarioController::class, "create"]);
 Route::put("/usuarios/update/{id}", [UsuarioController::class, "update"]);
 Route::put("/usuarios/delete/{id}", [UsuarioController::class, "destroy"]);
@@ -41,3 +41,8 @@ Route::get("/clases", [UsuarioCursoMaestroController::class, "index"]);
 //
 Route::post("/inscribir/alumno", [UsuarioCursoEstudianteController::class, "create"]);
 Route::post("/inscribir/maestro", [UsuarioCursoMaestroController::class, "create"]);
+//
+Route::get("/asistencias", [UsuarioCursoAsistenciaController::class, "index"]);
+
+Route::post("/asistencias/registro/alumno", [UsuarioCursoAsistenciaController::class, "asistenciaAlumno"]);
+Route::post("/asistencias/registro/maestro", [UsuarioCursoAsistenciaController::class, "asistenciaMaestro"]);
