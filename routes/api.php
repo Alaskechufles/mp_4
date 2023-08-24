@@ -45,4 +45,3 @@ Route::post("/inscribir/maestro", [UsuarioCursoMaestroController::class, "create
 Route::get("/asistencias", [UsuarioCursoAsistenciaController::class, "index"]);
 
 Route::post("/asistencias/registro/alumno", [UsuarioCursoAsistenciaController::class, "asistenciaAlumno"]);
-Route::post("/asistencias/registro/maestro", [UsuarioCursoAsistenciaController::class, "asistenciaMaestro"]);

@@ -44,12 +44,10 @@ return new class extends Migration
         Schema::create('usuario_curso_asistencias', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("id_uce");
-            $table->unsignedBigInteger("id_ucm");
             $table->date("fecha_de_asistencia");
             $table->string("asistencia");
             $table->timestamps();
             $table->foreign("id_uce")->references("id")->on("usuario_curso_estudiantes");
-            $table->foreign("id_ucm")->references("id")->on("usuario_curso_maestros");
         });
     }
 
